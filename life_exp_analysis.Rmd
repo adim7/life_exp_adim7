@@ -1,5 +1,5 @@
 ---
-title: "life_expectancy_analysis"
+title: "Life Expectancy Analysis"
 author: "Adim Okwudishu"
 date: "1/25/2021"
 output: html_document
@@ -11,7 +11,24 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 ```{r}
+# load dataset
 library(tidyverse)
 library(gapminder)
 ```
 
+```{r}
+# Load dataset
+life_exp <- gapminder_unfiltered
+life_exp
+```
+
+```{r}
+#find the maximum life expectancy for each year and country and order by year
+
+sumdat <- life_exp %>% # referencing the data
+  select(year, country, lifeExp) %>% # selecting the specific variables needed
+  group_by(year) %>%
+  filter(lifeExp == max(lifeExp)) %>%
+  slice_max(order_by = year) %>%
+  arrange(desc(lifeExp)); sumdat
+```
