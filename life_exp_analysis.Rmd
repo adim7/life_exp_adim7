@@ -32,3 +32,16 @@ sumdat <- life_exp %>% # referencing the data
   slice_max(order_by = year) %>%
   arrange(desc(lifeExp)); sumdat
 ```
+
+
+```{r}
+#Plot Life Expectancy by year
+
+sumdat %>%
+  ggplot(mapping = aes(x = year, y = lifeExp)) +
+  geom_point(aes(color = country)) +
+  geom_smooth(method = lm, se = FALSE) +
+  theme_bw()
+```
+
+
