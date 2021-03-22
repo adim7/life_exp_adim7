@@ -35,7 +35,7 @@ sumdat <- life_exp %>% # referencing the data
 
 
 ```{r}
-#Plot Life Expectancy by year
+#Plot Life Expectancy by year showing the different countries
 
 sumdat %>%
   ggplot(mapping = aes(x = year, y = lifeExp)) +
